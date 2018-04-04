@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <script type="text/javascript" src="jquery.js"></script>
+
+    <script type="text/javascript">
+        
+         $(document).ready(function () {
+                    $("#hola").click(function () {
+                    $.ajax({
+                        // la URL para la petición
+                        url : 'https://www.datos.gov.co/resource/gze3-pa7y.json',
+                        // especifica si será una petición POST o GET
+                        type : 'GET',
+                     
+                        // el tipo de información que se espera de respuesta
+                        dataType : 'json',
+                     
+                        // código a ejecutar si la petición es satisfactoria;          
+                        success : function(json) {
+                            alert('se ha realizado la petición');                           
+
+                            var tr;
+
+						    for (var i = 0; i < json.length; i++) {
+						        tr = $('<tr>');
+						        tr.append("<td>" + json[i].ano + "</td>");
+						        tr.append("<td>" + json[i].autor + "</td>");
+						        tr.append("<td>" + json[i].ciudad + "</td>");
+						        tr.append("<td>" + json[i].column0 + "</td>");
+						        tr.append("<td>" + json[i].editor + "</td>");
+						        $('#mostrar').append(tr);
+						        
+						    }  
+
+                        },           
+                        // código a ejecutar si la petición falla;
+                        // son pasados como argumentos a la función
+                        // el objeto de la petición en crudo y código de estatus de la petición
+                        error : function(xhr, status) {
+                            alert('ha ocurrido un error');
+                        },
+                     
+                        // código a ejecutar sin importar si la petición falló o no
+                        complete : function(xhr, status) {
+                            alert(' la Petición a sido realizada');
+                        }
+                    })
+                }       
+        )});
+
+    </script>
+
+</head>
+<body>
+
+    <h3>Presiona boton para probar Ajax</h3>
+    <button id="hola">Presioname</button>
+    <p>
+    	<table id="mostrar" border="1px">
+    		<tr>
+			    <th>Año</th>
+			    <th>Autor</th>
+			    <th>Ciudad</th>
+			    <th>Columna</th>
+			    <th>Editor</th>
+		  	</tr>
+    	</table>
+    </div>
+    
+</body>
+</html>
+
+

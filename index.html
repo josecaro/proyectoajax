@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <script src="jquery.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+    
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    
+    <script>
+        
+        $(document).ready(function (){
+            
+             $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+            
+            $("#lista").click(function () {
+                
+                $("#contenidos_externos").load("tabla1.html");
+                return false;
+ 
+            });
+      
+            
+        });
+          
+        
+    </script>
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+       
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav" id="lista">
+                <li class="sidebar-brand">
+                    <a href="tabla2.html">
+                        Datos uno
+                    </a>
+                </li>
+                <li>
+                    <a href="tabla1.html">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">Shortcuts</a>
+                </li>
+               
+            </ul>
+        </div>
+       
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <h1>Simple Sidebar</h1>
+                
+               <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+            </div>
+        </div>
+     
+
+    </div>
+    
+    <div id="contenidos_externos">
+        
+    </div>
+ 
+
+</body>
+
+</html>
